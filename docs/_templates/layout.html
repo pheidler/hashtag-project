@@ -1,0 +1,18 @@
+{% extends "!layout.html" %}
+{% block htmltitle %}
+  {% if pagename == "index" %}
+  <title>{{ title|striptags|e }}</title>
+  {% else %}
+  <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  {% endif %}
+{% endblock %}
+{% block extrahead %}
+{{ super() }}
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8" />
+  {% if pagename == "index" %}
+  <link rel="canonical" href="https://instaloader.github.io/" />
+  {% else %}
+  <link rel="canonical" href="https://instaloader.github.io/{{ pagename }}.html" />
+  {% endif %}
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+{% endblock %}
